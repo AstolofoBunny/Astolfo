@@ -13,7 +13,8 @@ Preferred communication style: Simple, everyday language.
 - January 30, 2025: Fixed server startup issue with ESM imports and type validation errors
 - January 30, 2025: Implemented complete content management platform with posts, categories, news, and admin panel
 - January 30, 2025: Added file upload system with drag-and-drop support for images and downloadable files
-- January 30, 2025: Fixed price validation issue in post creation API
+- January 30, 2025: Fixed price validation issue in post creation API  
+- January 30, 2025: Migrated from in-memory storage to PostgreSQL database with Drizzle ORM
 
 ## System Architecture
 
@@ -36,10 +37,11 @@ Preferred communication style: Simple, everyday language.
 - **Development**: Hot reload with Vite integration in development mode
 
 ### Data Storage Solutions
-- **Primary Database**: PostgreSQL via Neon Database serverless
-- **ORM**: Drizzle ORM with schema-first approach
-- **File Storage**: Local filesystem with static file serving
+- **Primary Database**: PostgreSQL (Replit-managed) with persistent data storage
+- **ORM**: Drizzle ORM with schema-first approach and full TypeScript integration
+- **File Storage**: Local filesystem with static file serving through Express
 - **Schema Management**: Drizzle Kit for migrations and schema management
+- **Database Connection**: Neon serverless PostgreSQL adapter for optimal performance
 
 ## Key Components
 
