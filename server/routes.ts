@@ -112,14 +112,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
+      // Debug logging
+      console.log("Raw req.body:", req.body);
+      console.log("Price value:", req.body.price, "Type:", typeof req.body.price);
+
       const postData = {
         ...req.body,
-        price: req.body.price ? req.body.price.toString() : "0",
-        isFree: req.body.price === "0" || !req.body.price,
+        price: String(req.body.price || "0"),
+        isFree: !req.body.price || req.body.price === "0" || req.body.price === 0,
         images,
         downloadFiles
       };
 
+      console.log("Processed postData:", postData);
       const validatedData = insertPostSchema.parse(postData);
       const post = await storage.createPost(validatedData);
       res.status(201).json(post);
@@ -170,8 +175,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const updateData = {
         ...req.body,
-        price: req.body.price ? req.body.price.toString() : existingPost.price,
-        isFree: req.body.price === "0" || !req.body.price,
+        price: String(req.body.price !== undefined ? req.body.price : existingPost.price),
+        isFree: !req.body.price || req.body.price === "0" || req.body.price === 0,
         images,
         downloadFiles
       };
