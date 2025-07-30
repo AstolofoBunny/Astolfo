@@ -112,10 +112,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      // Debug logging
-      console.log("Raw req.body:", req.body);
-      console.log("Price value:", req.body.price, "Type:", typeof req.body.price);
-
       const postData = {
         ...req.body,
         price: String(req.body.price || "0"),
@@ -123,8 +119,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         images,
         downloadFiles
       };
-
-      console.log("Processed postData:", postData);
       const validatedData = insertPostSchema.parse(postData);
       const post = await storage.createPost(validatedData);
       res.status(201).json(post);
