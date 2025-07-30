@@ -114,7 +114,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const postData = {
         ...req.body,
-        price: req.body.price ? parseFloat(req.body.price) : 0,
+        price: req.body.price ? req.body.price.toString() : "0",
         isFree: req.body.price === "0" || !req.body.price,
         images,
         downloadFiles
@@ -170,7 +170,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const updateData = {
         ...req.body,
-        price: req.body.price ? parseFloat(req.body.price) : existingPost.price,
+        price: req.body.price ? req.body.price.toString() : existingPost.price,
         isFree: req.body.price === "0" || !req.body.price,
         images,
         downloadFiles

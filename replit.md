@@ -8,6 +8,13 @@ ContentHub is a full-stack digital asset management platform built with React, E
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+- January 30, 2025: Fixed server startup issue with ESM imports and type validation errors
+- January 30, 2025: Implemented complete content management platform with posts, categories, news, and admin panel
+- January 30, 2025: Added file upload system with drag-and-drop support for images and downloadable files
+- January 30, 2025: Fixed price validation issue in post creation API
+
 ## System Architecture
 
 ### Frontend Architecture
