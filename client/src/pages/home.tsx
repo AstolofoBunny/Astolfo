@@ -56,7 +56,14 @@ export default function Home() {
     <div className="min-h-screen bg-slate-50">
       <Header />
 
-       <Auth />
+<div style={{ maxWidth: 300, margin: "20px auto", textAlign: "center" }}>
+  <Link href="/auth">
+    <button style={{ marginRight: 10, padding: "8px 16px" }}>Вход</button>
+  </Link>
+  <Link href="/auth">
+    <button style={{ padding: "8px 16px" }}>Регистрация</button>
+  </Link>
+</div>
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Category Filter */}
