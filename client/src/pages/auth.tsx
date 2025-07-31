@@ -1,8 +1,9 @@
-import React from "react";
-import Auth from "@/components/Auth";
-
-const AuthPage: React.FC = () => {
-  return <Auth />;
-};
-
-export default AuthPage;
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  User,
+} from "firebase/auth";
