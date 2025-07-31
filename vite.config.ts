@@ -24,12 +24,13 @@ export default defineConfig({
     },
   },
   root: path.resolve(import.meta.dirname, "client"),
+  optimizeDeps: {
+    include: ["firebase/app", "firebase/auth"],
+  },
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
-    rollupOptions: {
-      external: ["firebase/app", "firebase/auth"],
-    },
+    // Убираем rollupOptions.external или оставляем пустым, чтобы firebase не был external
   },
   server: {
     fs: {
