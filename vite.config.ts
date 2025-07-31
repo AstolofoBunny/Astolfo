@@ -30,7 +30,6 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
-    // Убираем rollupOptions.external или оставляем пустым, чтобы firebase не был external
   },
   server: {
     fs: {
